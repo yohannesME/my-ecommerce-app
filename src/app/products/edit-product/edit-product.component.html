@@ -1,20 +1,77 @@
-<div class="input-container text-center">
-  <h2>Edit Product</h2>
-  <label
-    >Name:
-    <input type="text" class="form-control" name="name" id="name" />
-  </label>
-  <label
-    >Image Url:
-    <input type="text" class="form-control" name="url" id="imageUrl" />
-  </label>
-  <label
-    >description:
-    <textarea class="form-control" name="desc" id="desc"></textarea>
-  </label>
-  <label
-    >Price:
-    <input type="number" class="form-control" name="price" id="price" />
-  </label>
-  <button id="finish-add" class="btn btn-dark">Done</button>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-" style="width: 18rem">
+      <img [src]="editedProduct.imageUrl" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ editedProduct.name }}</h5>
+        <p class="card-text">{{ editedProduct.description }}</p>
+        <p class="card-text">${{ editedProduct.price }}</p>
+      </div>
+    </div>
+
+    <div class="input-container col-sm text-center">
+      <h2>Edit editedProduct</h2>
+      <form (ngSubmit)="productEdit()">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          [(ngModel)]="editedProduct.name"
+          required
+          #name="ngModel"
+          minlength="3"
+        />
+
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="alert alert-danger w-50"
+        >
+          <div *ngIf="name.errors?.['required']">Name is required.</div>
+          <div *ngIf="name.errors?.['minlength']">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name.errors?.['maxlength']">
+            Name must be at least 30 characters long.
+          </div>
+          <!-- <div *ngIf="name.errors?.['forbiddenName']">Name cannot be Bob.</div> -->
+        </div>
+
+        <label for="imageUrl">Image Url:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="url"
+          id="imageUrl"
+          [(ngModel)]="editedProduct.imageUrl"
+          required
+        />
+
+        <label for="desc">description: </label>
+        <textarea
+          class="form-control md-textarea"
+          name="desc"
+          id="desc"
+          rows="6"
+          [(ngModel)]="editedProduct.description"
+          required
+        ></textarea>
+
+        <label for="price">Price: </label>
+        <input
+          type="number"
+          class="form-control"
+          name="price"
+          id="price"
+          [(ngModel)]="editedProduct.price"
+          required
+        />
+
+        <button id="finish-add" class="btn btn-success" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
 </div>

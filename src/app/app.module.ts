@@ -8,9 +8,10 @@ import { ProductsComponent } from './products/products.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CustomersComponent } from './customers/customers.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
+import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent, SignInComponent, CustomersComponent, EditProductComponent],
+  declarations: [AppComponent, ProductsComponent, SignInComponent, CustomersComponent, EditProductComponent, EditCustomerComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

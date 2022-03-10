@@ -4,3 +4,11 @@
   flex-direction: column;
   margin: 0 auto;
 }
+
+button {
+  margin: 1em;
+}
+
+textarea {
+  min-height: fit-content;
+}
