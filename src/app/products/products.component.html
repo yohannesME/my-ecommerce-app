@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+  </head>
+  <body>
+    <main>
+      <h1>products</h1>
+      <div class="all-pro-container">
+        <div class="card" *ngFor="let product of products" style="width: 18rem">
+          <img [src]="product.imageUrl" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">${{ product.price }}</p>
+            <a href="#" class="btn btn-primary">view details</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          class="btn btn-primary"
+          id="add-product-btn"
+          (click)="showProductForm()"
+        >
+          Add Product
+        </button>
+      </div>
+      <div class="input-container text-center" style="display: none">
+        <h2>Input Product</h2>
+        <label
+          >Name:
+          <input type="text" class="form-control" name="name" id="name" />
+        </label>
+        <label
+          >Image Url:
+          <input type="text" class="form-control" name="url" id="imageUrl" />
+        </label>
+        <label
+          >description:
+          <input type="text" class="form-control" name="desc" id="desc" />
+        </label>
+        <label
+          >Price:
+          <input type="number" class="form-control" name="price" id="price" />
+        </label>
+        <button id="finish-add" class="btn btn-dark" (click)="onAddProduct()">
+          Done
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

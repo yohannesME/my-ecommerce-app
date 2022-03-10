@@ -1,0 +1,22 @@
+.all-pro-container {
+  max-width: 100%;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  margin: 2rem auto;
+}
+
+#add-product-btn {
+  margin: 2rem auto;
+}

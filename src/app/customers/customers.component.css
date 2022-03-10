@@ -1,0 +1,23 @@
+h1 {
+  max-width: 100%;
+  background-color: rgb(83, 90, 48);
+  text-align: center;
+  color: rgba(58, 255, 212, 0.844);
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+}
+
+.customer {
+  width: 32rem;
+}
+
+input {
+  margin: 0.5rem;
+}
+
+.detail-hidden {
+  display: none;
+}

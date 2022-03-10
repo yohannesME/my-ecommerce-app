@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="h1 text-center">Customers List</h1>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <td scope="col"></td>
+            <td scope="col">Name</td>
+            <td scope="col">Email</td>
+            <td scope="col">Phone Number</td>
+            <td scope="col">Address</td>
+            <td scope="col">Registration Date</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <th scope="row">
+              <img
+                [src]="customer.imageUrl"
+                class="rounded-circle avatar"
+                alt=""
+              />
+            </th>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phoneNum }}</td>
+            <td>{{ customer.address }}</td>
+            <td
+              class="card-text"
+              [ngStyle]="{
+                color: checkRegistrationYear(customer.registrationDate)
+              }"
+            >
+              {{ customer.registrationDate }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
