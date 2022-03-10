@@ -1,0 +1,103 @@
+<div class="input-container text-center">
+  <h2>Input Product</h2>
+  <form (ngSubmit)="onAddProduct()" #f="ngForm">
+    <label
+      >Name:
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        placeholder="Name of Product"
+        [(ngModel)]="product.name"
+        #name="ngModel"
+        required
+      />
+    </label>
+
+    <div
+      *ngIf="name.invalid && (name.dirty || name.touched)"
+      class="alert alert-danger w-50"
+    >
+      <div *ngIf="name.errors?.['required']">Name is required.</div>
+      <div *ngIf="name.errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="name.errors?.['maxlength']">
+        Name must be at least 30 characters long.
+      </div>
+      <!-- <div *ngIf="name.errors?.['forbiddenName']">Name cannot be Bob.</div> -->
+    </div>
+    <label
+      >Image Url:
+      <input
+        type="text"
+        class="form-control"
+        name="url"
+        id="imageUrl"
+        placeholder="Image Url"
+        [(ngModel)]="product.imageUrl"
+        #imageUrl="ngModel"
+        required
+      />
+    </label>
+
+    <div
+      *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+      class="alert alert-danger w-50 align-center"
+    >
+      <div *ngIf="imageUrl.errors?.['required']">image Url is required.</div>
+    </div>
+
+    <label
+      >description:
+      <textarea
+        class="form-control md-textarea"
+        name="desc"
+        id="desc"
+        rows="6"
+        placeholder="description of Product"
+        [(ngModel)]="product.description"
+        required
+        #desc="ngModel"
+      ></textarea>
+
+      <div
+        *ngIf="desc.invalid && (desc.dirty || desc.touched)"
+        class="alert alert-danger w-50 align-center"
+      >
+        <div *ngIf="desc.errors?.['required']">Description is required.</div>
+      </div>
+    </label>
+    <label
+      >Price:
+      <input
+        type="number"
+        class="form-control"
+        name="price"
+        id="price"
+        placeholder="Price of Product"
+        [(ngModel)]="product.price"
+        required
+        #price="ngModel"
+      />
+    </label>
+
+    <div
+      *ngIf="price.invalid && (price.dirty || price.touched)"
+      class="alert alert-danger w-50 align-center"
+    >
+      <div *ngIf="price.errors?.['required']">Product Price is required.</div>
+    </div>
+
+    <button
+      type="submit"
+      id="finish-add"
+      class="btn btn-dark"
+      [disabled]="!f.valid"
+      (click)="onAddProduct()"
+    >
+      Done
+    </button>
+  </form>
+</div>

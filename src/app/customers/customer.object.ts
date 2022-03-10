@@ -26,7 +26,7 @@ export const customers: Customer[] = [
     'HarryPotter@gmail.com',
     'Addis Ababa',
     '3/10/2020',
-    '../../assets/customers/cmd.png'
+    '../../assets/customers/pp.jpg'
   ),
   new Customer(
     1,
@@ -35,6 +35,6 @@ export const customers: Customer[] = [
     'JackSparrow@gmail.com',
     'Dire',
     new Date().toLocaleDateString(),
-    '../../assets/customers/cmd.png'
+    '../../assets/customers/pp.jpg'
   ),
 ];

@@ -9,9 +9,11 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { CustomersComponent } from './customers/customers.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
+import { DelProductComponent } from './products/del-product/del-product.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent, SignInComponent, CustomersComponent, EditProductComponent, EditCustomerComponent],
+  declarations: [AppComponent, ProductsComponent, SignInComponent, CustomersComponent, EditProductComponent, EditCustomerComponent, DelProductComponent, AddProductComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -21,43 +21,12 @@ export class ProductsComponent implements OnInit {
   onViewDetail(id: number) {
     this.router.navigateByUrl('/products/edit/' + id);
   }
-  showProductForm() {
-    const inputContainer: HTMLElement =
-      document.querySelector('.input-container')!;
-    inputContainer.style.display = '';
-    window.scrollTo(0, document.body.scrollHeight);
+  toProductForm() {
+    this.router.navigateByUrl('products/add');
   }
 
-  onAddProduct() {
-    const inputContainer: HTMLElement =
-      document.querySelector('.input-container')!;
-
-    const name: HTMLInputElement = <HTMLInputElement>(
-      document.getElementById('name')
-    );
-    const desc: HTMLInputElement = <HTMLInputElement>(
-      document.getElementById('desc')
-    );
-    const Url: HTMLInputElement = <HTMLInputElement>(
-      document.getElementById('imageUrl')
-    );
-    const price: HTMLInputElement = <HTMLInputElement>(
-      document.getElementById('price')
-    );
-
-    const product = new Product(
-      1,
-      name.value,
-      desc.value,
-      Url.value,
-      Number(price.value)
-    );
-    this.products.push(product);
-    name.value = '';
-    desc.value = '';
-    Url.value = '';
-    price.value = '';
-
-    inputContainer.style.display = 'none';
+  onDeleteProduct(id: number) {
+    console.log('this exceite');
+    this.router.navigateByUrl('/products/delete/' + id);
   }
 }

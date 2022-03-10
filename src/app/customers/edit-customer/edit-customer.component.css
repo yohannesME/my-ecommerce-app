@@ -1,0 +1,13 @@
+.btn-edit {
+  margin: 1rem;
+}
+
+.bold {
+  font-weight: bold;
+  font-style: oblique;
+}
+
+.align-center {
+  margin: 0.5rem auto;
+  padding: 0.3rem;
+}

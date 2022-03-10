@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Customer, customers } from './customer.object';
 
 @Component({
@@ -8,7 +9,7 @@ import { Customer, customers } from './customer.object';
 })
 export class CustomersComponent implements OnInit {
   customers: Customer[];
-  constructor() {
+  constructor(private router: Router) {
     this.customers = customers;
   }
 
@@ -17,14 +18,10 @@ export class CustomersComponent implements OnInit {
       ? 'black'
       : 'orange';
   }
-  toggleDetail(event: any) {
-    // event.target.previousElementSibling.style.display === 'none'
-    //   ? (event.target.previousElementSibling.style.display = '')
-    //   : (event.target.previousElementSibling.style.display = 'none');
-    event.target.previousElementSibling.classList.toggle('detail-hidden');
-    event.target.textContent === ' View Details '
-      ? (event.target.textContent = 'Hide Details')
-      : (event.target.textContent = 'View Details');
+  onEditCustomer(id: number) {
+    console.log('object');
+    this.router.navigateByUrl('customers/edit/' + id);
   }
+
   ngOnInit(): void {}
 }

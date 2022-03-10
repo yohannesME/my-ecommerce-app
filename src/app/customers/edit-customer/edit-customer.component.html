@@ -1,1 +1,169 @@
-<p>edit-customer works!</p>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-" style="width: 18rem">
+      <img [src]="editedCustomer.imageUrl" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ editedCustomer.name }}</h5>
+        <p class="card-title">
+          <span class="bold">Email:</span> {{ editedCustomer.email }}
+        </p>
+        <p class="card-title">
+          <span class="bold">Phone:</span> {{ editedCustomer.phoneNum }}
+        </p>
+        <p class="card-title">
+          <span class="bold">Address:</span> {{ editedCustomer.address }}
+        </p>
+        <p class="card-title">
+          <span class="bold"> Registration Date:</span>
+          {{ editedCustomer.registrationDate }}
+        </p>
+      </div>
+    </div>
+
+    <div class="input-container col-sm text-center">
+      <h2>Edit editedCustomer</h2>
+      <form (ngSubmit)="customerEdit()" #f="ngForm">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          [(ngModel)]="editedCustomer.name"
+          required
+          #name="ngModel"
+          minlength="3"
+          maxlength="30"
+          pattern="\w+ \w+"
+        />
+
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="alert alert-danger w-50 align-center"
+        >
+          <div *ngIf="name.errors?.['required']">Name is required.</div>
+          <div *ngIf="name.errors?.['minlength']">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name.errors?.['pattern']">
+            Invalid Full Name [FirstName LastName] required.
+          </div>
+        </div>
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          #email="ngModel"
+          id="email"
+          pattern="^\w+@\w+\.\w+$"
+          [(ngModel)]="editedCustomer.email"
+          required
+        />
+
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="alert alert-danger w-50 align-center"
+        >
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['pattern']">Invalid Email Address</div>
+        </div>
+
+        <label for="phone">Phone Number:</label>
+        <input
+          type="number"
+          class="form-control"
+          name="phone"
+          id="phone"
+          #phone="ngModel"
+          [(ngModel)]="editedCustomer.phoneNum"
+          placeholder="Phone Number Digit with out [(, -]"
+          pattern="[0]?\d{9}"
+          required
+        />
+
+        <div
+          *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+          class="alert alert-danger w-50 align-center"
+        >
+          <div *ngIf="phone.errors?.['required']">
+            Phone Number is required.
+          </div>
+          <div *ngIf="phone.errors?.['pattern']">Invalid Phone Number</div>
+        </div>
+
+        <label for="address">Address:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="address"
+          id="address"
+          [(ngModel)]="editedCustomer.address"
+          required
+          #address="ngModel"
+        />
+
+        <div
+          *ngIf="address.invalid && (address.dirty || address.touched)"
+          class="alert alert-danger w-50 align-center"
+        >
+          <div *ngIf="address.errors?.['required']">
+            address Number is required.
+          </div>
+        </div>
+
+        <label for="regDate">Registration Date:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="regDate"
+          id="regDate"
+          [(ngModel)]="editedCustomer.registrationDate"
+          required
+          #date="ngModel"
+          pattern="\d{1,2}[\/\- ]\d{1,2}[\/\- ]\d{2,4}"
+        />
+
+        <div
+          *ngIf="date.invalid && (date.dirty || date.touched)"
+          class="alert alert-danger w-50 align-center"
+        >
+          <div *ngIf="date.errors?.['required']">
+            Registration Date is required.
+          </div>
+          <div *ngIf="date.errors?.['pattern']">Invalid Date</div>
+        </div>
+
+        <label for="imageUrl">Image Url:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="url"
+          id="imageUrl"
+          [(ngModel)]="editedCustomer.imageUrl"
+          #imageUrl="ngModel"
+          required
+        />
+
+        <div
+          *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+          class="alert alert-danger w-50 align-center"
+        >
+          <div *ngIf="imageUrl.errors?.['required']">
+            image Url is required.
+          </div>
+        </div>
+
+        <button
+          id="finish-add"
+          class="btn btn-success btn-edit"
+          type="submit"
+          [disabled]="!f.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
