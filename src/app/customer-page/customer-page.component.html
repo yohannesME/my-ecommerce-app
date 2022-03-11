@@ -1,0 +1,138 @@
+<main>
+  <div class="input-container col-sm text-center">
+    <h2>Customer</h2>
+    <form (ngSubmit)="addCustomer()" #f="ngForm">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        [(ngModel)]="customer.name"
+        required
+        #name="ngModel"
+        minlength="3"
+        maxlength="30"
+        pattern="\w+ \w+"
+      />
+
+      <div
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger w-50 align-center"
+      >
+        <div *ngIf="name.errors?.['required']">Name is required.</div>
+        <div *ngIf="name.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors?.['pattern']">
+          Invalid Full Name [FirstName LastName] required.
+        </div>
+      </div>
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        #email="ngModel"
+        id="email"
+        pattern="^\w+@\w+\.\w+$"
+        [(ngModel)]="customer.email"
+        required
+      />
+
+      <div
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+        class="alert alert-danger w-50 align-center"
+      >
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['pattern']">Invalid Email Address</div>
+      </div>
+
+      <label for="phone">Phone Number:</label>
+      <input
+        type="number"
+        class="form-control"
+        name="phone"
+        id="phone"
+        #phone="ngModel"
+        [(ngModel)]="customer.phoneNum"
+        pattern="[0]?\d{9}"
+        required
+      />
+
+      <div
+        *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+        class="alert alert-danger w-50 align-center"
+      >
+        <div *ngIf="phone.errors?.['required']">Phone Number is required.</div>
+        <div *ngIf="phone.errors?.['pattern']">Invalid Phone Number</div>
+      </div>
+
+      <label for="address">Address:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="address"
+        id="address"
+        [(ngModel)]="customer.address"
+        required
+        #address="ngModel"
+      />
+
+      <div
+        *ngIf="address.invalid && (address.dirty || address.touched)"
+        class="alert alert-danger w-50 align-center"
+      >
+        <div *ngIf="address.errors?.['required']">
+          address Number is required.
+        </div>
+      </div>
+
+      <label for="imageUrl">Image Url:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="url"
+        id="imageUrl"
+        [(ngModel)]="customer.imageUrl"
+        #imageUrl="ngModel"
+        required
+      />
+
+      <div
+        *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+        class="alert alert-danger w-50 align-center"
+      >
+        <div *ngIf="imageUrl.errors?.['required']">image Url is required.</div>
+      </div>
+
+      <label for="pass">Password:</label>
+      <input
+        type="password"
+        class="form-control"
+        name="pass"
+        id="pass"
+        [(ngModel)]="customer.password"
+        #pass="ngModel"
+        required
+      />
+
+      <div
+        *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+        class="alert alert-danger w-50 align-center"
+      >
+        <div *ngIf="pass.errors?.['required']">password is Required</div>
+      </div>
+
+      <button
+        id="finish-add"
+        class="btn btn-success btn-edit"
+        type="submit"
+        [disabled]="!f.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</main>

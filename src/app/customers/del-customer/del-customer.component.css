@@ -1,0 +1,11 @@
+.card-customer {
+  border: 1px red;
+  display: flex;
+  gap: 2rem;
+}
+.bg-customer {
+  backdrop-filter: rgb(208, 20, 20);
+  background-color: rgba(92, 80, 80, 0.905);
+  max-width: 100vw;
+  max-height: 100vh;
+}

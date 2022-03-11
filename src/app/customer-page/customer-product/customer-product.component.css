@@ -1,0 +1,57 @@
+@media all and (max-width: 950px) {
+  .all-pro-container {
+    max-width: 90%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 2fr);
+    margin: 0 auto;
+  }
+  .card-product {
+    min-width: 3rem;
+  }
+}
+@media all and (max-width: 600px) {
+  .all-pro-container {
+    max-width: 90%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, 2fr);
+    margin: 0 auto;
+  }
+  .card-product {
+    min-width: 3rem;
+  }
+}
+
+.add-del-btn {
+  max-width: 100vw;
+  margin-right: 1rem;
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.all-pro-container {
+  max-width: 90%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 2fr);
+  margin: 0 auto;
+}
+.card-product {
+  min-width: 300px;
+}
+
+#add-product-btn {
+  margin: 2rem auto;
+}
+
+button {
+  margin: 0.5rem;
+}
+
+.chartBtn {
+  margin: 0 auto;
+}

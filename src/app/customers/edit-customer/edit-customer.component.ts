@@ -34,9 +34,4 @@ export class EditCustomerComponent implements OnInit {
 
     this.route.navigateByUrl('customers');
   }
-  // validEmail(): boolean {
-  //   const regEmail = /\w[@]\w\.\w/g;
-  //   console.log(this.editedCustomer);
-  //   return !regEmail.test(String(this.editedCustomer.email));
-  // }
 }

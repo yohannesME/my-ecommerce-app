@@ -22,6 +22,10 @@ export class CustomersComponent implements OnInit {
     console.log('object');
     this.router.navigateByUrl('customers/edit/' + id);
   }
+  onDeleteCustomer(id: number) {
+    console.log('object');
+    this.router.navigateByUrl('customers/delete/' + id);
+  }
 
   ngOnInit(): void {}
 }

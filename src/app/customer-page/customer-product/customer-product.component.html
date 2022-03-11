@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+  </head>
+  <body>
+    <div class="text-right add-del-btn">
+      <button class="btn btn-primary chartBtn" (click)="finishChart()">
+        Chart Price:{{ chartPrice }}
+      </button>
+    </div>
+    <main>
+      <div class="all-pro-container">
+        <div
+          class="card card-product"
+          *ngFor="let product of products"
+          style="width: 18rem"
+        >
+          <img [src]="product.imageUrl" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">${{ product.price }}</p>
+            <button
+              class="btn btn-primary"
+              (click)="onAddToChart($event, product.price)"
+            >
+              Add To Chart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <router-outlet></router-outlet>
+    </main>
+  </body>
+</html>

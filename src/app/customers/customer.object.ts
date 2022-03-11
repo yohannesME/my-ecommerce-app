@@ -1,4 +1,6 @@
 export class Customer {
+  public password: string = '123';
+
   constructor(
     public id: number,
     public name: String,

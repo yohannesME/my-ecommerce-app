@@ -16,7 +16,9 @@ export class ProductsComponent implements OnInit {
     this.products = products;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.getElementById('navbar')?.classList.remove('hidden');
+  }
 
   onViewDetail(id: number) {
     this.router.navigateByUrl('/products/edit/' + id);

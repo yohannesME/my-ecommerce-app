@@ -1,0 +1,10 @@
+.input-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+main {
+  background-color: rgba(181, 196, 184, 0.857);
+  width: 100vw;
+  height: 100vh;
+}

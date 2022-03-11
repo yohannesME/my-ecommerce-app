@@ -1,26 +1,76 @@
-<!-- saved from url=(0136)https://a.udemycdn.com/2019-08-23_05-33-38-2ef09f50675d6f46e53be04e6b97b2c8/original.html?nva=20200303175438&token=0771d733e4f2cc8c285b5 -->
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-  </head>
-  <body>
-    <main>
-      <div class="input-container">
-        <h2>sign in/up</h2>
-        <label
-          >Name:
-          <input type="text" name="name" id="name" />
-        </label>
-        <label
-          >Phone Number:
-          <input type="tel" name="name" id="phone" />
-        </label>
-        <label
-          >Email:
-          <input type="email" name="name" id="email" />
-        </label>
-        <button id="sign-up">Sign up</button>
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Customer</h3>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Email"
+          name="email"
+          [(ngModel)]="customer.email"
+        />
       </div>
-    </main>
-  </body>
-</html>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Your Password"
+          name="pass"
+          [(ngModel)]="customer.password"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="btnSubmit"
+          type="button"
+          value="Login"
+          (click)="onCustomerLogin()"
+        />
+      </div>
+      <!-- <div class="form-group">
+        <a href="#" class="btnForgetPwd">Forget Password?</a>
+      </div> -->
+      <a href="#" class="btnForgetPwd" routerLink="/customer"
+        >create an Account</a
+      >
+    </div>
+    <div class="col-md-6 login-form-2">
+      <div class="login-logo">
+        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+      </div>
+
+      <h3>Admin</h3>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Your Email *"
+          name="adminEmail"
+          [(ngModel)]="admin.email"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Your Password *"
+          name="adminPass"
+          [(ngModel)]="admin.password"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="btnSubmit"
+          type="button"
+          value="Login"
+          (click)="onAdminLogin()"
+        />
+      </div>
+      <div class="form-group">
+        <a href="#" class="btnForgetPwd" value="Login">Forget Password?</a>
+      </div>
+    </div>
+  </div>
+</div>
